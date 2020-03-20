@@ -1,0 +1,32 @@
+# user teddy
+create teddy bear 210
+login user1 user1
+search "Seattle WA" "Boston MA" 1 1 1
+book 0
+pay 1
+search "Seattle WA" "Boston MA" 1 11 2
+book 1
+pay 2
+cancel 1
+pay 2
+quit
+*
+#
+# expected printouts for teddy 
+#
+Created user teddy
+Logged in as teddy
+Itinerary 0: 1 flight(s), 297.0 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 70
+Itinerary 0: 1 flight(s), 305 minutes
+ID: 708546 Day: 11 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 305 Capacity: 16 Price: 566
+Itinerary 1: 1 flight(s), 306 minutes
+ID: 726082 Day: 11 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 306 Capacity: 4 Price: 109
+Booked flight(s), reservation ID: 2
+User has only 70 in account but itinerary costs 109
+Canceled reservation 1
+Paid reservation: 2 remaining balance: 101
+Goodbye
+*

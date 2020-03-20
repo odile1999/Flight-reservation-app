@@ -1,0 +1,6 @@
+search "Seattle WA" "New York NY" 0 1 0
+quit
+*
+No flights match your selection
+Goodbye
+*

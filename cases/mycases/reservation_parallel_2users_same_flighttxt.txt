@@ -1,0 +1,112 @@
+# This tests two users trying to book the same flight with only 1 seat left.
+# One of them should succeed and the other should fail. Then the reservation 
+# of each user can either show one itinerary or empty.
+# user 1
+create user1 user1 1000
+login user1 user1
+search "Detroit MI" "Albany NY" 1 6 10
+book 5
+reservations
+quit
+*
+#
+# expected printouts for user 1
+#
+# first scenario: user 1 fails in booking and user 2 succeeds
+#
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 73 minutes
+ID: 307441 Day: 6 Carrier: NW Number: 390 Origin: Detroit MI Dest: Albany NY Duration: 73 Capacity: 4 Price: 465
+Itinerary 1: 1 flight(s), 76 minutes
+ID: 316232 Day: 6 Carrier: NW Number: 696 Origin: Detroit MI Dest: Albany NY Duration: 76 Capacity: 6 Price: 134
+Itinerary 2: 1 flight(s), 91 minutes
+ID: 853061 Day: 6 Carrier: EV Number: 4907 Origin: Detroit MI Dest: Albany NY Duration: 91 Capacity: 10 Price: 213
+Itinerary 3: 1 flight(s), 92 minutes
+ID: 333464 Day: 6 Carrier: NW Number: 1522 Origin: Detroit MI Dest: Albany NY Duration: 92 Capacity: 3 Price: 194
+Itinerary 4: 1 flight(s), 93 minutes
+ID: 325016 Day: 6 Carrier: NW Number: 1064 Origin: Detroit MI Dest: Albany NY Duration: 93 Capacity: 2 Price: 587
+Itinerary 5: 1 flight(s), 94 minutes
+ID: 857930 Day: 6 Carrier: EV Number: 5024 Origin: Detroit MI Dest: Albany NY Duration: 94 Capacity: 1 Price: 610
+Booking failed
+No reservations found
+Goodbye
+#
+|  # "|" denotes an alternate outcome scenario
+#
+# second scenario: user 1 succeeds in booking and user 2 fails
+#
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 73 minutes
+ID: 307441 Day: 6 Carrier: NW Number: 390 Origin: Detroit MI Dest: Albany NY Duration: 73 Capacity: 4 Price: 465
+Itinerary 1: 1 flight(s), 76 minutes
+ID: 316232 Day: 6 Carrier: NW Number: 696 Origin: Detroit MI Dest: Albany NY Duration: 76 Capacity: 6 Price: 134
+Itinerary 2: 1 flight(s), 91 minutes
+ID: 853061 Day: 6 Carrier: EV Number: 4907 Origin: Detroit MI Dest: Albany NY Duration: 91 Capacity: 10 Price: 213
+Itinerary 3: 1 flight(s), 92 minutes
+ID: 333464 Day: 6 Carrier: NW Number: 1522 Origin: Detroit MI Dest: Albany NY Duration: 92 Capacity: 3 Price: 194
+Itinerary 4: 1 flight(s), 93 minutes
+ID: 325016 Day: 6 Carrier: NW Number: 1064 Origin: Detroit MI Dest: Albany NY Duration: 93 Capacity: 2 Price: 587
+Itinerary 5: 1 flight(s), 94 minutes
+ID: 857930 Day: 6 Carrier: EV Number: 5024 Origin: Detroit MI Dest: Albany NY Duration: 94 Capacity: 1 Price: 610
+Booked flight(s), reservation ID: 1
+Reservation 1 paid: false:
+ID: 857930 Day: 6 Carrier: EV Number: 5024 Origin: Detroit MI Dest: Albany NY Duration: 94 Capacity: 1 Price: 610
+Goodbye
+#
+*
+#
+# similarly for user 2
+#
+create user2 user2 10000
+login user2 user2
+search "Kahului HI" "Los Angeles CA" 0 6 7
+book 5
+reservtaions
+quit
+*
+#
+# first scenario: user 1 succeeds in booking and user 2 fails
+#
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 73 minutes
+ID: 307441 Day: 6 Carrier: NW Number: 390 Origin: Detroit MI Dest: Albany NY Duration: 73 Capacity: 4 Price: 465
+Itinerary 1: 1 flight(s), 76 minutes
+ID: 316232 Day: 6 Carrier: NW Number: 696 Origin: Detroit MI Dest: Albany NY Duration: 76 Capacity: 6 Price: 134
+Itinerary 2: 1 flight(s), 91 minutes
+ID: 853061 Day: 6 Carrier: EV Number: 4907 Origin: Detroit MI Dest: Albany NY Duration: 91 Capacity: 10 Price: 213
+Itinerary 3: 1 flight(s), 92 minutes
+ID: 333464 Day: 6 Carrier: NW Number: 1522 Origin: Detroit MI Dest: Albany NY Duration: 92 Capacity: 3 Price: 194
+Itinerary 4: 1 flight(s), 93 minutes
+ID: 325016 Day: 6 Carrier: NW Number: 1064 Origin: Detroit MI Dest: Albany NY Duration: 93 Capacity: 2 Price: 587
+Itinerary 5: 1 flight(s), 94 minutes
+ID: 857930 Day: 6 Carrier: EV Number: 5024 Origin: Detroit MI Dest: Albany NY Duration: 94 Capacity: 1 Price: 610
+Booked flight(s), reservation ID: 1
+Reservation 1 paid: false:
+ID: 857930 Day: 6 Carrier: EV Number: 5024 Origin: Detroit MI Dest: Albany NY Duration: 94 Capacity: 1 Price: 610
+Goodbye
+#
+|
+#
+# second scenario: user 1 fails in booking and user 2 succeeds
+#
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 73 minutes
+ID: 307441 Day: 6 Carrier: NW Number: 390 Origin: Detroit MI Dest: Albany NY Duration: 73 Capacity: 4 Price: 465
+Itinerary 1: 1 flight(s), 76 minutes
+ID: 316232 Day: 6 Carrier: NW Number: 696 Origin: Detroit MI Dest: Albany NY Duration: 76 Capacity: 6 Price: 134
+Itinerary 2: 1 flight(s), 91 minutes
+ID: 853061 Day: 6 Carrier: EV Number: 4907 Origin: Detroit MI Dest: Albany NY Duration: 91 Capacity: 10 Price: 213
+Itinerary 3: 1 flight(s), 92 minutes
+ID: 333464 Day: 6 Carrier: NW Number: 1522 Origin: Detroit MI Dest: Albany NY Duration: 92 Capacity: 3 Price: 194
+Itinerary 4: 1 flight(s), 93 minutes
+ID: 325016 Day: 6 Carrier: NW Number: 1064 Origin: Detroit MI Dest: Albany NY Duration: 93 Capacity: 2 Price: 587
+Itinerary 5: 1 flight(s), 94 minutes
+ID: 857930 Day: 6 Carrier: EV Number: 5024 Origin: Detroit MI Dest: Albany NY Duration: 94 Capacity: 1 Price: 610
+Booking failed
+No reservations found
+Goodbye
+*

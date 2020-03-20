@@ -1,0 +1,17 @@
+# create one user: Tony
+# login in as an non-exist user
+# login in as Tony
+# login in as Tony again
+create Tony Stark 1000
+login Robert ironman
+login Tony Stark
+login Tony Stark
+quit
+*
+# expected sequence of outputs
+Created user Tony
+Login failed
+Logged in as Tony
+User already logged in
+Goodbye
+*

@@ -1,0 +1,22 @@
+# first user's commands
+create teddy bear 1000
+login teddy bear
+quit
+*
+#
+# expected printouts for teddy
+#
+Created user teddy
+Logged in as teddy
+Goodbye
+#
+* 
+# second user's commands
+create kerry kerry 10000
+login kerry kerry
+quit
+*  #expected printouts for kerry
+Created user kerry
+Logged in as kerry
+Goodbye
+*

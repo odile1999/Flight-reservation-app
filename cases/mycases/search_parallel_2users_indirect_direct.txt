@@ -1,0 +1,83 @@
+# This tests two users trying to search flights with both direct and indirect results
+# concurrently, the results should be same, and list both indirect and direct flights
+# and sort by time
+# user 1
+create user1 user1 10000
+login user1 user1
+search "Seattle WA" "Portland OR" 0 1 13
+quit
+*
+#
+# expected printouts for user 1
+#
+
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 38 minutes
+ID: 377316 Day: 1 Carrier: OO Number: 6342 Origin: Seattle WA Dest: Portland OR Duration: 38 Capacity: 0 Price: 400
+Itinerary 1: 1 flight(s), 41 minutes
+ID: 377311 Day: 1 Carrier: OO Number: 6337 Origin: Seattle WA Dest: Portland OR Duration: 41 Capacity: 12 Price: 233
+Itinerary 2: 1 flight(s), 41 minutes
+ID: 377318 Day: 1 Carrier: OO Number: 6344 Origin: Seattle WA Dest: Portland OR Duration: 41 Capacity: 16 Price: 559
+Itinerary 3: 1 flight(s), 42 minutes
+ID: 377320 Day: 1 Carrier: OO Number: 6346 Origin: Seattle WA Dest: Portland OR Duration: 42 Capacity: 17 Price: 734
+Itinerary 4: 1 flight(s), 43 minutes
+ID: 377313 Day: 1 Carrier: OO Number: 6339 Origin: Seattle WA Dest: Portland OR Duration: 43 Capacity: 15 Price: 403
+Itinerary 5: 1 flight(s), 46 minutes
+ID: 377315 Day: 1 Carrier: OO Number: 6341 Origin: Seattle WA Dest: Portland OR Duration: 46 Capacity: 10 Price: 993
+Itinerary 6: 1 flight(s), 48 minutes
+ID: 947538 Day: 1 Carrier: OO Number: 4612 Origin: Seattle WA Dest: Portland OR Duration: 48 Capacity: 5 Price: 456
+Itinerary 7: 1 flight(s), 49 minutes
+ID: 951495 Day: 1 Carrier: OO Number: 4608 Origin: Seattle WA Dest: Portland OR Duration: 49 Capacity: 2 Price: 397
+Itinerary 8: 1 flight(s), 50 minutes
+ID: 703210 Day: 1 Carrier: AS Number: 414 Origin: Seattle WA Dest: Portland OR Duration: 50 Capacity: 13 Price: 346
+Itinerary 9: 1 flight(s), 53 minutes
+ID: 948044 Day: 1 Carrier: OO Number: 4623 Origin: Seattle WA Dest: Portland OR Duration: 53 Capacity: 3 Price: 758
+Itinerary 10: 1 flight(s), 53 minutes
+ID: 952899 Day: 1 Carrier: OO Number: 4790 Origin: Seattle WA Dest: Portland OR Duration: 53 Capacity: 16 Price: 138
+Itinerary 11: 2 flight(s), 104 minutes
+ID: 541809 Day: 1 Carrier: WN Number: 468 Origin: Seattle WA Dest: Spokane WA Duration: 48 Capacity: 1 Price: 550
+ID: 540005 Day: 1 Carrier: WN Number: 2083 Origin: Spokane WA Dest: Portland OR Duration: 56 Capacity: 15 Price: 850
+Itinerary 12: 2 flight(s), 105 minutes
+ID: 69671 Day: 1 Carrier: AS Number: 454 Origin: Seattle WA Dest: Spokane WA Duration: 49 Capacity: 8 Price: 541
+ID: 540005 Day: 1 Carrier: WN Number: 2083 Origin: Spokane WA Dest: Portland OR Duration: 56 Capacity: 15 Price: 850
+Goodbye
+#
+# similarly for user 2
+#
+create user2 user2 10000
+login user2 user2
+search "Seattle WA" "Portland OR" 0 1 13
+quit
+*
+#
+#
+Itinerary 0: 1 flight(s), 38 minutes
+ID: 377316 Day: 1 Carrier: OO Number: 6342 Origin: Seattle WA Dest: Portland OR Duration: 38 Capacity: 0 Price: 400
+Itinerary 1: 1 flight(s), 41 minutes
+ID: 377311 Day: 1 Carrier: OO Number: 6337 Origin: Seattle WA Dest: Portland OR Duration: 41 Capacity: 12 Price: 233
+Itinerary 2: 1 flight(s), 41 minutes
+ID: 377318 Day: 1 Carrier: OO Number: 6344 Origin: Seattle WA Dest: Portland OR Duration: 41 Capacity: 16 Price: 559
+Itinerary 3: 1 flight(s), 42 minutes
+ID: 377320 Day: 1 Carrier: OO Number: 6346 Origin: Seattle WA Dest: Portland OR Duration: 42 Capacity: 17 Price: 734
+Itinerary 4: 1 flight(s), 43 minutes
+ID: 377313 Day: 1 Carrier: OO Number: 6339 Origin: Seattle WA Dest: Portland OR Duration: 43 Capacity: 15 Price: 403
+Itinerary 5: 1 flight(s), 46 minutes
+ID: 377315 Day: 1 Carrier: OO Number: 6341 Origin: Seattle WA Dest: Portland OR Duration: 46 Capacity: 10 Price: 993
+Itinerary 6: 1 flight(s), 48 minutes
+ID: 947538 Day: 1 Carrier: OO Number: 4612 Origin: Seattle WA Dest: Portland OR Duration: 48 Capacity: 5 Price: 456
+Itinerary 7: 1 flight(s), 49 minutes
+ID: 951495 Day: 1 Carrier: OO Number: 4608 Origin: Seattle WA Dest: Portland OR Duration: 49 Capacity: 2 Price: 397
+Itinerary 8: 1 flight(s), 50 minutes
+ID: 703210 Day: 1 Carrier: AS Number: 414 Origin: Seattle WA Dest: Portland OR Duration: 50 Capacity: 13 Price: 346
+Itinerary 9: 1 flight(s), 53 minutes
+ID: 948044 Day: 1 Carrier: OO Number: 4623 Origin: Seattle WA Dest: Portland OR Duration: 53 Capacity: 3 Price: 758
+Itinerary 10: 1 flight(s), 53 minutes
+ID: 952899 Day: 1 Carrier: OO Number: 4790 Origin: Seattle WA Dest: Portland OR Duration: 53 Capacity: 16 Price: 138
+Itinerary 11: 2 flight(s), 104 minutes
+ID: 541809 Day: 1 Carrier: WN Number: 468 Origin: Seattle WA Dest: Spokane WA Duration: 48 Capacity: 1 Price: 550
+ID: 540005 Day: 1 Carrier: WN Number: 2083 Origin: Spokane WA Dest: Portland OR Duration: 56 Capacity: 15 Price: 850
+Itinerary 12: 2 flight(s), 105 minutes
+ID: 69671 Day: 1 Carrier: AS Number: 454 Origin: Seattle WA Dest: Spokane WA Duration: 49 Capacity: 8 Price: 541
+ID: 540005 Day: 1 Carrier: WN Number: 2083 Origin: Spokane WA Dest: Portland OR Duration: 56 Capacity: 15 Price: 850
+Goodbye

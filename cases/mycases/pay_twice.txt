@@ -1,0 +1,21 @@
+# user lemon
+create lemon lemon 1000
+login lemon lemon
+search "Seattle WA" "Boston MA" 1 1 1
+book 0
+pay 1
+pay 1
+quit
+*
+
+# expected printouts for lemon
+
+Created user lemon
+Logged in as lemon
+Itinerary 0: 1 flight(s), 297.0 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 860
+Cannot find unpaid reservation 1 under user: lemon
+Goodbye
+*

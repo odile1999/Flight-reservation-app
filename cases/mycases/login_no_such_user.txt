@@ -1,0 +1,9 @@
+#
+login nonexistent dne
+*
+#
+# expected printouts for this
+#
+Login failed
+Goodbye
+*
